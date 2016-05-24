@@ -2,6 +2,8 @@
 
 #include <list>
 
+#include <SFML/Graphics.hpp>
+
 class MainMenu
 {
 public:
@@ -12,17 +14,17 @@ public:
 		Play
 	};
 
+	MainMenu();
+
+	MenuResult show(sf::RenderWindow& window);
+private:
 	struct MenuItem
 	{
 		sf::Rect<int> rect;
 		MenuResult action;
 	};
-
-	MenuResult Show(sf::RenderWindow& a_Window);
-
 private:
-	MenuResult GetMenuResponse(sf::RenderWindow& a_Window);
-	MenuResult HandleClick(int a_x, int a_y);
+	MenuResult handleClick(int x, int y) const;
 
-	std::list<MenuItem> m_MenuItems;
+	std::list<MenuItem> m_menuItems;
 };

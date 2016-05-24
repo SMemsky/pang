@@ -1,11 +1,12 @@
 #include "Game.h"
 
-
-//HOLA
-
 int main()
 {
 	Game game;
-	game.Start();
+	if (game.init())
+	{
+		game.start();
+	}
+
 	return 0;
 }
