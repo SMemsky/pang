@@ -9,7 +9,7 @@
 
 GameBall::GameBall(Game* game) :
 	super(),
-	m_velocity(2300.0f),
+	m_velocity(230.0f),
 	m_angle(std::rand() % 360 + 1),
 	m_runtime(0.0f),
 	m_game(game)
@@ -24,7 +24,7 @@ GameBall::GameBall(Game* game) :
 void GameBall::update(float deltaTime)
 {
 	m_runtime += deltaTime;
-	if (m_runtime < 0.0f)
+	if (m_runtime < 1.5f)
 	{
 		return;
 	}
@@ -41,6 +41,8 @@ void GameBall::update(float deltaTime)
 	float moveByX = linearVelocityX(m_angle) * moveDist;
 	float moveByY = linearVelocityY(m_angle) * moveDist;
 
+	// TODO: Advanced ball-AABB collission calculation?
+	// This is enough for now
 
 	sf::Rect<float> playerBB = player->getBoundingRect();
 	sf::Rect<float> aiBB = ai->getBoundingRect();
@@ -147,7 +149,7 @@ void GameBall::update(float deltaTime)
 		m_sprite.setPosition(m_game->getScreenWidth() / 2,
 			m_game->getScreenHeight() / 2);
 		m_angle = (rand()%360) + 1;
-		m_velocity = 2300.0f;
+		m_velocity = 230.0f;
 		m_runtime = 0.0f;
 	}
 

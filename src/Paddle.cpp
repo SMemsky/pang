@@ -7,7 +7,7 @@
 Paddle::Paddle(Game* game) :
 	super(),
 	m_maxVelocity(800.0f),
-	m_acceleration(150.0f),
+	m_acceleration(600.0f),
 	m_slowdownRate(90.0f),
 	m_velocity(0.0f),
 	m_game(game)
