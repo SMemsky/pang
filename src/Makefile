@@ -4,7 +4,7 @@ Target = pang
 TargetPath = ../
 
 CXX = g++
-CXXFLAGS = -g -Wall -Wextra -O2 -std=c++11
+CXXFLAGS = -g -Wall -Wextra -O2 -std=c++11 -pedantic
 LDFLAGS = -lsfml-system -lsfml-window -lsfml-graphics
 
 MAIN_OBJECTS = main.o \
